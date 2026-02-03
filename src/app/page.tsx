@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import FadeIn from "@/components/fade-in";
+import GitHubCalendar from "@/components/github-calendar";
 
 export default function Home() {
   return (
@@ -78,8 +79,16 @@ export default function Home() {
         </section>
       </FadeIn>
 
-      {/* Connect */}
+      {/* GitHub Activity */}
       <FadeIn delay={0.45}>
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold">GitHub Activity</h2>
+          <GitHubCalendar />
+        </section>
+      </FadeIn>
+
+      {/* Connect */}
+      <FadeIn delay={0.6}>
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">Connect</h2>
           <div className="flex gap-4">
