@@ -164,20 +164,18 @@ export default function GitHubCalendar() {
           <div className="inline-block">
             {/* Month labels */}
             <div className="flex mb-1" style={{ paddingLeft: 28 }}>
-              {months.map((m, i) => (
-                <span
-                  key={i}
-                  className="text-[10px] text-muted"
-                  style={{
-                    position: "relative",
-                    left: m.col * 13,
-                    width: 0,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {m.label}
-                </span>
-              ))}
+              {weeks.map((_, wi) => {
+                const month = months.find((m) => m.col === wi);
+                return (
+                  <span
+                    key={wi}
+                    className="text-[10px] text-muted"
+                    style={{ width: 12, flexShrink: 0, whiteSpace: "nowrap" }}
+                  >
+                    {month ? month.label : ""}
+                  </span>
+                );
+              })}
             </div>
 
             <div className="flex gap-[1px]">
