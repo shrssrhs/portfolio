@@ -3,7 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Home, FolderOpen, PenLine, Mail, FileText, Menu, X } from "lucide-react";
+import {
+  Home,
+  FolderOpen,
+  PenLine,
+  Mail,
+  FileText,
+  Menu,
+  X,
+  PanelLeftClose,
+  PanelLeftOpen,
+} from "lucide-react";
 import { useState } from "react";
 
 const links = [
@@ -14,31 +24,54 @@ const links = [
   { href: "/resume", label: "Resume", icon: FileText },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  collapsed: boolean;
+  onToggle: () => void;
+}
+
+export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
       {/* Mobile toggle */}
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => setMobileOpen(!mobileOpen)}
         className="fixed top-4 left-4 z-50 md:hidden p-2 rounded-lg bg-card border border-border"
       >
-        {open ? <X size={20} /> : <Menu size={20} />}
+        {mobileOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
+
+      {/* Desktop toggle (visible when sidebar is hidden) */}
+      {collapsed && (
+        <button
+          onClick={onToggle}
+          className="fixed top-4 left-4 z-50 hidden md:flex p-2 rounded-lg bg-card border border-border hover:bg-card-hover transition-colors"
+        >
+          <PanelLeftOpen size={20} className="text-muted" />
+        </button>
+      )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-56 bg-card border-r border-border z-40 flex flex-col p-6 transition-transform duration-200 ${
-          open ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0`}
+        className={`fixed top-0 left-0 h-full w-56 bg-card border-r border-border z-40 flex flex-col p-6 transition-transform duration-300 ${
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
+        } ${collapsed ? "md:-translate-x-full" : "md:translate-x-0"}`}
       >
+        {/* Desktop collapse button */}
+        <button
+          onClick={onToggle}
+          className="hidden md:flex absolute top-4 right-4 p-1.5 rounded-md hover:bg-card-hover transition-colors"
+        >
+          <PanelLeftClose size={16} className="text-muted" />
+        </button>
+
         <div className="mb-10">
-          <Link href="/" className="block" onClick={() => setOpen(false)}>
+          <Link href="/" className="block" onClick={() => setMobileOpen(false)}>
             <Image
               src="/avatar.jpeg"
-              alt="Shen"
+              alt="shrssrhs"
               width={64}
               height={64}
               className="mb-3"
@@ -55,7 +88,7 @@ export default function Sidebar() {
               <Link
                 key={href}
                 href={href}
-                onClick={() => setOpen(false)}
+                onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                   active
                     ? "bg-accent/10 text-accent font-medium"
@@ -90,10 +123,10 @@ export default function Sidebar() {
       </aside>
 
       {/* Mobile overlay */}
-      {open && (
+      {mobileOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={() => setOpen(false)}
+          onClick={() => setMobileOpen(false)}
         />
       )}
     </>
