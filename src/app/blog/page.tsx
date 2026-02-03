@@ -1,6 +1,16 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import FadeIn from "@/components/fade-in";
 
-const posts = [
+interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  summary: string;
+}
+
+const defaultPosts: BlogPost[] = [
   {
     slug: "getting-started-with-python",
     title: "How I Got Started with Python",
@@ -18,6 +28,23 @@ const posts = [
 ];
 
 export default function Blog() {
+  const [posts, setPosts] = useState<BlogPost[]>(defaultPosts);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("blog_posts");
+    if (stored) {
+      const customPosts: BlogPost[] = JSON.parse(stored);
+      // Merge: custom posts first, then defaults (skip duplicates by slug)
+      const customSlugs = new Set(customPosts.map((p) => p.slug));
+      const merged = [
+        ...customPosts,
+        ...defaultPosts.filter((p) => !customSlugs.has(p.slug)),
+      ];
+      merged.sort((a, b) => b.date.localeCompare(a.date));
+      setPosts(merged);
+    }
+  }, []);
+
   return (
     <div className="space-y-8 pt-8 md:pt-16">
       <FadeIn>
