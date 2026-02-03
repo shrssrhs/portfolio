@@ -145,13 +145,54 @@ export default function Home() {
       <div className="flex-1 space-y-20">
         {/* Home / About */}
         <FadeIn>
-          <section id="home" className="scroll-mt-20">
-            <h2 className="text-sm font-semibold mb-2">About</h2>
-            <p className="text-muted leading-relaxed">
-              I&apos;m a student learning to code and building desktop
-              applications with Python. Currently exploring web development
-              with TypeScript and React.
-            </p>
+          <section id="home" className="scroll-mt-20 space-y-8">
+            <div>
+              <h2 className="text-sm font-semibold mb-2">About</h2>
+              <p className="text-muted leading-relaxed">
+                I&apos;m a student learning to code and building desktop
+                applications with Python. Currently exploring web development
+                with TypeScript and React.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-sm font-semibold mb-1">Ventures</h2>
+              <p className="text-sm text-muted mb-4">What I&apos;m up to outside of code</p>
+              <div className="space-y-4">
+                <a
+                  href="https://www.youtube.com/@shrssrhs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <div className="flex items-start gap-1">
+                    <h3 className="font-medium text-sm group-hover:text-accent transition-colors">
+                      YouTube | shrssrhs
+                    </h3>
+                    <ExternalLink size={12} className="text-muted mt-0.5 shrink-0" />
+                  </div>
+                  <p className="text-sm text-muted mt-0.5">
+                    Videos about coding, projects, and tech.
+                  </p>
+                </a>
+                <a
+                  href="https://t.me/SherstyanoiGad"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <div className="flex items-start gap-1">
+                    <h3 className="font-medium text-sm group-hover:text-accent transition-colors">
+                      Telegram | SherstyanoiGad
+                    </h3>
+                    <ExternalLink size={12} className="text-muted mt-0.5 shrink-0" />
+                  </div>
+                  <p className="text-sm text-muted mt-0.5">
+                    Channel with updates, thoughts, and behind the scenes.
+                  </p>
+                </a>
+              </div>
+            </div>
           </section>
         </FadeIn>
 
