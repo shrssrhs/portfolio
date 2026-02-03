@@ -1,4 +1,4 @@
-import Link from "next/link";
+import FadeIn from "@/components/fade-in";
 
 const posts = [
   {
@@ -20,25 +20,26 @@ const posts = [
 export default function Blog() {
   return (
     <div className="space-y-8 pt-8 md:pt-16">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
-        <p className="text-muted mt-2">
-          Thoughts on coding, learning, and building things.
-        </p>
-      </div>
+      <FadeIn>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
+          <p className="text-muted mt-2">
+            Thoughts on coding, learning, and building things.
+          </p>
+        </div>
+      </FadeIn>
 
       <div className="grid gap-4">
-        {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="group p-5 rounded-xl bg-card border border-border hover:border-accent/50 transition-colors"
-          >
-            <time className="text-xs text-muted">{post.date}</time>
-            <h2 className="text-lg font-semibold mt-1 group-hover:text-accent transition-colors">
-              {post.title}
-            </h2>
-            <p className="text-sm text-muted mt-2">{post.summary}</p>
-          </article>
+        {posts.map((post, i) => (
+          <FadeIn key={post.slug} delay={0.1 + i * 0.1}>
+            <article className="group p-5 rounded-xl bg-card border border-border hover:border-accent/50 transition-colors">
+              <time className="text-xs text-muted">{post.date}</time>
+              <h2 className="text-lg font-semibold mt-1 group-hover:text-accent transition-colors">
+                {post.title}
+              </h2>
+              <p className="text-sm text-muted mt-2">{post.summary}</p>
+            </article>
+          </FadeIn>
         ))}
       </div>
 
