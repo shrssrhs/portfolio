@@ -94,16 +94,23 @@ export default function GitHubCalendar() {
     "bg-[#39d353]",
   ];
 
+  const targetYear = selectedYear === "last" ? null : parseInt(selectedYear);
   const months: { label: string; col: number }[] = [];
   let lastMonth = -1;
+  let lastCol = -4;
   weeks.forEach((week, i) => {
     const firstDay = week.find((d) => d !== null);
     if (firstDay) {
-      const m = new Date(firstDay.date).getMonth();
-      if (m !== lastMonth) {
+      const d = new Date(firstDay.date);
+      const m = d.getMonth();
+      // Skip months outside the selected year
+      if (targetYear && d.getFullYear() !== targetYear) return;
+      // Only add if month changed and enough space (3+ cols) from last label
+      if (m !== lastMonth && i - lastCol >= 3) {
         lastMonth = m;
+        lastCol = i;
         months.push({
-          label: new Date(firstDay.date).toLocaleString("en", { month: "short" }),
+          label: d.toLocaleString("en", { month: "short" }),
           col: i,
         });
       }
