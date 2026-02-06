@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ExternalLink, Github, Send } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Send, Mail, MessageCircle, Heart } from "lucide-react";
 import Image from "next/image";
 import FadeIn from "@/components/fade-in";
 import GitHubCalendar from "@/components/github-calendar";
@@ -49,6 +49,13 @@ const skills = [
 const timeline = [
   { period: "2025 — Present", title: "Self-taught Developer", description: "Building desktop applications with Python and learning web development." },
   { period: "2024 — 2025", title: "Programming Courses", description: "Python fundamentals, GUI development, audio processing, and data visualization." },
+];
+
+const contacts = [
+  { label: "GitHub", href: "https://github.com/shrssrhs", icon: Github, handle: "@shrssrhs", description: "Check out my projects and contributions" },
+  { label: "Telegram", href: "https://t.me/shrssrhsduke", icon: Send, handle: "@shrssrhsduke", description: "Quick messages and updates" },
+  { label: "Email", href: "mailto:shenshenus42@gmail.com", icon: Mail, handle: "shenshenus42@gmail.com", description: "For longer conversations and collaborations" },
+  { label: "Discord", href: "https://discord.gg/uAhuQUSP", icon: MessageCircle, handle: "discord.gg/uAhuQUSP", description: "Join my Discord server" },
 ];
 
 export default function Home() {
@@ -284,32 +291,49 @@ export default function Home() {
 
         {/* Contact */}
         <FadeIn delay={0.4}>
-          <section id="contact" className="scroll-mt-20">
-            <h2 className="text-sm font-semibold mb-4">Connect</h2>
-            <div className="space-y-3">
+          <section id="contact" className="scroll-mt-20 min-h-[60vh]">
+            <h2 className="text-sm font-semibold mb-1">Connect</h2>
+            <p className="text-sm text-muted mb-4">Feel free to reach out — I&apos;m always open to connecting</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {contacts.map(({ label, href, icon: Icon, handle, description }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="group flex items-start gap-3 p-4 rounded-lg bg-card border border-border hover:border-accent/50 transition-colors"
+                >
+                  <Icon size={18} className="text-muted group-hover:text-accent transition-colors mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium group-hover:text-accent transition-colors">{label}</p>
+                    <p className="text-xs text-muted">{handle}</p>
+                    <p className="text-xs text-muted mt-1">{description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            {/* Support */}
+            <div className="mt-10">
+              <div className="flex items-center gap-2 mb-1">
+                <Heart size={14} className="text-accent" />
+                <h2 className="text-sm font-semibold">Support</h2>
+              </div>
+              <p className="text-sm text-muted mb-4">If you enjoy my work, consider supporting me</p>
               <a
-                href="https://github.com/shrssrhs"
+                href="https://send.monobank.ua/jar/PLACEHOLDER"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3"
+                className="group flex items-center gap-3 p-4 rounded-lg bg-card border border-border hover:border-accent/50 transition-colors"
               >
-                <Github size={18} className="text-muted group-hover:text-accent transition-colors" />
-                <div>
-                  <p className="text-sm font-medium group-hover:text-accent transition-colors">GitHub</p>
-                  <p className="text-xs text-muted">@shrssrhs</p>
+                <div className="p-2 rounded-lg bg-card-hover border border-border group-hover:border-accent/30 transition-colors">
+                  <Heart size={18} className="text-muted group-hover:text-accent transition-colors" />
                 </div>
-              </a>
-              <a
-                href="https://t.me/shrssrhsduke"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3"
-              >
-                <Send size={18} className="text-muted group-hover:text-accent transition-colors" />
                 <div>
-                  <p className="text-sm font-medium group-hover:text-accent transition-colors">Telegram</p>
-                  <p className="text-xs text-muted">@shrssrhsduke</p>
+                  <p className="text-sm font-medium group-hover:text-accent transition-colors">Monobank Jar</p>
+                  <p className="text-xs text-muted">Support via Monobank donation jar</p>
                 </div>
+                <ExternalLink size={12} className="text-muted ml-auto shrink-0" />
               </a>
             </div>
           </section>
