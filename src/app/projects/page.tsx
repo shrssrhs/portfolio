@@ -3,6 +3,13 @@ import FadeIn from "@/components/fade-in";
 
 const projects = [
   {
+    title: "YouTube Downloader",
+    description:
+      "Spotify-style media app with library, playlists, built-in player, quality selector, macOS Now Playing integration, and multi-threaded downloads.",
+    tech: ["Python", "CustomTkinter", "yt-dlp", "pygame", "pyobjc"],
+    link: "https://github.com/shrssrhs/youtube-downloader",
+  },
+  {
     title: "Habit Tracker",
     description:
       "Desktop app for tracking daily habits with streaks, weekly goals, statistics charts, CSV export, and desktop notifications.",
