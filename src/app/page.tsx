@@ -16,6 +16,11 @@ const navLinks = [
 
 const projects = [
   {
+    title: "YouTube Downloader",
+    description: "Spotify-style media app with library, playlists, built-in player, and macOS Now Playing.",
+    link: "https://github.com/shrssrhs/youtube-downloader",
+  },
+  {
     title: "Habit Tracker",
     description: "Desktop app for tracking daily habits with streaks, stats, and notifications.",
     link: "https://github.com/shrssrhs/habit-tracker",
@@ -28,6 +33,11 @@ const projects = [
 ];
 
 const defaultPosts = [
+  {
+    title: "YouTube Downloader — Spotify-style Desktop App",
+    date: "February 6, 2026",
+    summary: "Built a media app with library, playlists, built-in player, quality selector, and macOS Now Playing integration. Download: github.com/shrssrhs/youtube-downloader",
+  },
   {
     title: "Building a Habit Tracker from Scratch",
     date: "February 1, 2025",

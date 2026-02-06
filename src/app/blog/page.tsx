@@ -12,6 +12,13 @@ interface BlogPost {
 
 const defaultPosts: BlogPost[] = [
   {
+    slug: "youtube-downloader-release",
+    title: "YouTube Downloader — Spotify-style Desktop App",
+    date: "2026-02-06",
+    summary:
+      "Built a Spotify-inspired media app with a full library system, playlists, built-in audio player with seek bar, quality selector (720p/1080p/Max/Audio), background playback with mini-player, and macOS Now Playing integration. Powered by yt-dlp, supports 1000+ sites. Download: github.com/shrssrhs/youtube-downloader",
+  },
+  {
     slug: "getting-started-with-python",
     title: "How I Got Started with Python",
     date: "2025-01-15",
