@@ -77,7 +77,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
               className="mb-3"
             />
             <h1 className="text-xl font-bold tracking-tight">shrssrhs</h1>
-            <p className="text-sm text-muted mt-1">Student & Developer</p>
+            <p className="text-sm text-muted mt-1">Web Developer</p>
           </Link>
         </div>
 

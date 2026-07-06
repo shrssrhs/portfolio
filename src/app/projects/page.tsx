@@ -3,25 +3,28 @@ import FadeIn from "@/components/fade-in";
 
 const projects = [
   {
-    title: "YouTube Downloader",
+    title: "Nox — real-time messenger (live)",
     description:
-      "Spotify-style media app with library, playlists, built-in player, quality selector, macOS Now Playing integration, and multi-threaded downloads.",
-    tech: ["Python", "CustomTkinter", "yt-dlp", "pygame", "pyobjc"],
-    link: "https://github.com/shrssrhs/youtube-downloader",
+      "A full-stack chat platform: channels, DMs, reactions, typing indicators, unread tracking, file uploads and voice/video calls. Built solo and deployed to production.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Supabase (auth, realtime, storage)",
+      "LiveKit (WebRTC)",
+      "Electron",
+    ],
+    link: "https://onirnox.lol",
+    featured: true,
   },
   {
     title: "Habit Tracker",
     description:
-      "Desktop app for tracking daily habits with streaks, weekly goals, statistics charts, CSV export, and desktop notifications.",
-    tech: ["Python", "CustomTkinter", "SQLite", "Matplotlib"],
+      "Small desktop app for tracking daily habits — an earlier side project.",
+    tech: ["Python", "SQLite"],
     link: "https://github.com/shrssrhs/habit-tracker",
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "Personal portfolio site built with Next.js, TypeScript, and Tailwind CSS. The site you're looking at right now.",
-    tech: ["TypeScript", "Next.js", "Tailwind CSS"],
-    link: "https://github.com/shrssrhs/portfolio",
+    featured: false,
   },
 ];
 
@@ -64,6 +67,18 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+              {/* TODO: demo video for the featured project — drop a screen
+                  capture into /public and embed it here:
+              {project.featured && (
+                <video
+                  src="/nox-demo.mp4"
+                  controls
+                  muted
+                  playsInline
+                  className="mt-4 w-full rounded-lg border border-border"
+                />
+              )}
+              */}
             </a>
           </FadeIn>
         ))}

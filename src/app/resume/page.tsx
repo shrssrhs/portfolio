@@ -1,23 +1,26 @@
 import FadeIn from "@/components/fade-in";
 
 const skills = [
-  { category: "Languages", items: ["Python", "TypeScript", "HTML/CSS"] },
   {
-    category: "Frameworks & Libraries",
-    items: ["CustomTkinter", "Next.js", "React", "Tailwind CSS"],
+    category: "Core Stack",
+    items: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   },
   {
-    category: "Tools & Databases",
-    items: ["Git", "SQLite", "Matplotlib", "VS Code"],
+    category: "Backend & Realtime",
+    items: ["Supabase (auth, realtime, storage)", "LiveKit / WebRTC", "Electron"],
+  },
+  {
+    category: "Tools",
+    items: ["Git", "Vercel", "VS Code", "Python"],
   },
 ];
 
 const timeline = [
   {
     period: "2025 — Present",
-    title: "Self-taught Developer",
+    title: "Independent Web Developer",
     description:
-      "Building desktop applications with Python and learning web development with TypeScript and React.",
+      "Building and shipping production web apps (Nox messenger: Next.js, Supabase, LiveKit).",
   },
   {
     period: "2024 — 2025",

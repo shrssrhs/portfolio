@@ -14,50 +14,51 @@ const navLinks = [
   { id: "contact", label: "Contact", key: "5" },
 ];
 
+const featuredProject = {
+  title: "Nox — real-time messenger (live)",
+  description:
+    "A full-stack chat platform: channels, DMs, reactions, typing indicators, unread tracking, file uploads and voice/video calls. Built solo and deployed to production.",
+  stack: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind",
+    "Supabase (auth, realtime, storage)",
+    "LiveKit (WebRTC)",
+    "Electron",
+  ],
+  link: "https://onirnox.lol",
+};
+
 const projects = [
   {
-    title: "YouTube Downloader",
-    description: "Spotify-style media app with library, playlists, built-in player, and macOS Now Playing.",
-    link: "https://github.com/shrssrhs/youtube-downloader",
-  },
-  {
     title: "Habit Tracker",
-    description: "Desktop app for tracking daily habits with streaks, stats, and notifications.",
+    description: "Small desktop app for tracking daily habits — an earlier side project.",
     link: "https://github.com/shrssrhs/habit-tracker",
-  },
-  {
-    title: "Portfolio Website",
-    description: "This site. Built with Next.js, TypeScript, and Tailwind CSS.",
-    link: "https://github.com/shrssrhs/portfolio",
   },
 ];
 
 const defaultPosts = [
   {
-    title: "YouTube Downloader — Spotify-style Desktop App",
-    date: "February 6, 2026",
-    summary: "Built a media app with library, playlists, built-in player, quality selector, and macOS Now Playing integration. Download: github.com/shrssrhs/youtube-downloader",
+    title: "Shipping Nox — a Real-time Messenger",
+    date: "June 2026",
+    summary: "Building and deploying a full-stack chat platform with channels, DMs, voice/video calls and realtime sync on Next.js, Supabase and LiveKit. Live at onirnox.lol",
   },
   {
     title: "Building a Habit Tracker from Scratch",
     date: "February 1, 2025",
     summary: "A deep dive into creating a full-featured habit tracking app with SQLite, Matplotlib, and desktop notifications.",
   },
-  {
-    title: "How I Got Started with Python",
-    date: "January 15, 2025",
-    summary: "My journey from zero coding knowledge to building desktop apps with Python and CustomTkinter.",
-  },
 ];
 
 const skills = [
-  { category: "Languages", items: ["Python", "TypeScript", "HTML/CSS"] },
-  { category: "Frameworks", items: ["CustomTkinter", "Next.js", "React", "Tailwind CSS"] },
-  { category: "Tools", items: ["Git", "SQLite", "Matplotlib", "VS Code"] },
+  { category: "Core Stack", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
+  { category: "Backend & Realtime", items: ["Supabase (auth, realtime, storage)", "LiveKit / WebRTC", "Electron"] },
+  { category: "Tools", items: ["Git", "Vercel", "VS Code", "Python"] },
 ];
 
 const timeline = [
-  { period: "2025 — Present", title: "Self-taught Developer", description: "Building desktop applications with Python and learning web development." },
+  { period: "2025 — Present", title: "Independent Web Developer", description: "Building and shipping production web apps (Nox messenger: Next.js, Supabase, LiveKit)." },
   { period: "2024 — 2025", title: "Programming Courses", description: "Python fundamentals, GUI development, audio processing, and data visualization." },
 ];
 
@@ -102,7 +103,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+    <div className="flex flex-col md:flex-row gap-12 md:gap-16 md:justify-center">
       {/* Left column — Profile & Nav */}
       <FadeIn direction="right">
         <div className="md:sticky md:top-16 md:self-start md:w-48 shrink-0 space-y-8">
@@ -115,7 +116,7 @@ export default function Home() {
               className="mb-4"
             />
             <h1 className="text-lg font-bold tracking-tight">shrssrhs</h1>
-            <p className="text-sm text-muted">Student & Developer</p>
+            <p className="text-sm text-muted">Web Developer</p>
           </div>
 
           <nav className="space-y-1">
@@ -164,11 +165,24 @@ export default function Home() {
         <FadeIn>
           <section id="home" className="scroll-mt-20 space-y-8">
             <div>
+              <h2 className="text-xl font-bold tracking-tight mb-2">
+                Web Developer — Next.js · React · Supabase
+              </h2>
+              <p className="text-muted leading-relaxed">
+                I build and ship full-stack web apps with real-time features:
+                chat, voice/video calls, live data.
+              </p>
+            </div>
+
+            <div>
               <h2 className="text-sm font-semibold mb-2">About</h2>
               <p className="text-muted leading-relaxed">
-                I&apos;m a student learning to code and building desktop
-                applications with Python. Currently exploring web development
-                with TypeScript and React.
+                I&apos;m a web developer from Ukraine working with Next.js,
+                React, TypeScript, Tailwind and Supabase. I take projects from
+                idea to deployed production — my latest is Nox, a real-time
+                messenger with voice/video calls, built and shipped end-to-end.
+                I care about clean, minimal UI and apps that actually work, not
+                just demos.
               </p>
             </div>
 
@@ -217,7 +231,45 @@ export default function Home() {
         <FadeIn delay={0.1}>
           <section id="projects" className="scroll-mt-20">
             <h2 className="text-sm font-semibold mb-1">Projects</h2>
-            <p className="text-sm text-muted mb-4">Things I&apos;m actively working on</p>
+            <p className="text-sm text-muted mb-4">Things I&apos;ve built and shipped</p>
+
+            {/* Featured project */}
+            <div className="mb-6 p-4 rounded-lg bg-card border border-border">
+              <a
+                href={featuredProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="flex items-start gap-1">
+                  <h3 className="font-medium text-sm group-hover:text-accent transition-colors">
+                    {featuredProject.title}
+                  </h3>
+                  <ExternalLink size={12} className="text-muted mt-0.5 shrink-0" />
+                </div>
+                <p className="text-sm text-muted mt-1">{featuredProject.description}</p>
+              </a>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {featuredProject.stack.map((t) => (
+                  <span
+                    key={t}
+                    className="text-xs px-2.5 py-1 rounded-md bg-card-hover text-muted border border-border"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              {/* TODO: demo video — drop a screen capture into /public and embed it here:
+              <video
+                src="/nox-demo.mp4"
+                controls
+                muted
+                playsInline
+                className="mt-4 w-full rounded-lg border border-border"
+              />
+              */}
+            </div>
+
             <div className="space-y-4">
               {projects.map((p) => (
                 <a
@@ -249,7 +301,7 @@ export default function Home() {
         <FadeIn delay={0.2}>
           <section id="blog" className="scroll-mt-20">
             <h2 className="text-sm font-semibold mb-1">Recent Posts</h2>
-            <p className="text-sm text-muted mb-4">Writing about my experiences and learnings</p>
+            <p className="text-sm text-muted mb-4">Writing about building and shipping web apps</p>
             <div className="space-y-3">
               {defaultPosts.map((post) => (
                 <div key={post.title} className="py-2">

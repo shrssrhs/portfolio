@@ -14,8 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "shrssrhs — Portfolio",
-  description: "Student & developer. Building things with Python and beyond.",
+  title: "shrssrhs — Web Developer",
+  description:
+    "Web developer — Next.js, React, Supabase. Real-time apps shipped to production.",
+  openGraph: {
+    title: "shrssrhs — Web Developer",
+    description:
+      "Web developer — Next.js, React, Supabase. Real-time apps shipped to production.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

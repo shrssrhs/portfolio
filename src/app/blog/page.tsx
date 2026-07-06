@@ -12,18 +12,11 @@ interface BlogPost {
 
 const defaultPosts: BlogPost[] = [
   {
-    slug: "youtube-downloader-release",
-    title: "YouTube Downloader — Spotify-style Desktop App",
-    date: "2026-02-06",
+    slug: "shipping-nox",
+    title: "Shipping Nox — a Real-time Messenger",
+    date: "2026-06-15",
     summary:
-      "Built a Spotify-inspired media app with a full library system, playlists, built-in audio player with seek bar, quality selector (720p/1080p/Max/Audio), background playback with mini-player, and macOS Now Playing integration. Powered by yt-dlp, supports 1000+ sites. Download: github.com/shrssrhs/youtube-downloader",
-  },
-  {
-    slug: "getting-started-with-python",
-    title: "How I Got Started with Python",
-    date: "2025-01-15",
-    summary:
-      "My journey from zero coding knowledge to building desktop apps with Python and CustomTkinter.",
+      "Building and deploying a full-stack chat platform with channels, DMs, reactions, typing indicators, file uploads and voice/video calls — on Next.js, Supabase and LiveKit. Live at onirnox.lol",
   },
   {
     slug: "building-habit-tracker",
@@ -58,7 +51,7 @@ export default function Blog() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
           <p className="text-muted mt-2">
-            Thoughts on coding, learning, and building things.
+            Thoughts on building and shipping web apps.
           </p>
         </div>
       </FadeIn>
